@@ -17,5 +17,5 @@ fi
 echo "Downloading script"
 curl -L https://raw.githubusercontent.com/Yelrado/sftp-config-hook/master/post-checkout > .git/hooks/post-checkout
 chmod 755 .git/hooks/post-checkout
-"${EDITOR:-nano}" .git/hooks/post-checkout
+wait "${EDITOR:-vi}" .git/hooks/post-checkout < /dev/tty
 echo "Installed!"
