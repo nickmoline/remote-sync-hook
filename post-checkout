@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+# Updates remote user directory after checkout
+# 
+
+########################
+# Set your prefix      
+PREFIX="angelj-"       
+# Set your username
+USER="angel.alvarado"
+########################
+
+SFTP_CONFIG="sftp-config.json"
+TMP=$SFTP_CONFIG".tmp"
+
+if [ ! -f $SFTP_CONFIG ]; then
+    exit;
+fi
+
+BASE_PATH="/home/"
+FULL_PATH=$BASE_PATH$USER"/"
+
+BRANCH="$(git branch | grep \*)"
+BRANCH="$(echo "${BRANCH}" | cut -d " " -f 2)"
+
+if [[ $BRANCH != $PREFIX* ]]
+then
+  exit;
+fi
+
+sed -e 's#//.*##' -e 's/[ ^I]*$//' -e '/^$/ d' "$SFTP_CONFIG" > "$TMP"
+mv "$TMP" "$SFTP_CONFIG"
+sed -i '' -e 's/^.*connect_timeout.*,$/"connect_timeout": 30/g' "$SFTP_CONFIG"
+
+REMOTE_FOLDER="$(echo ${BRANCH} | cut -d '-' -f 2-)"
+FULL_PATH=$FULL_PATH$REMOTE_FOLDER
+QUERY='.remote_path = "'$FULL_PATH'"'
+
+jq "$QUERY" "$SFTP_CONFIG" > "$TMP"
+mv "$TMP" "$SFTP_CONFIG"
