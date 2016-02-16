@@ -17,6 +17,5 @@ fi
 echo "Downloading script"
 curl -L https://raw.githubusercontent.com/Yelrado/sftp-config-hook/master/post-checkout > .git/hooks/post-checkout
 chmod 755 .git/hooks/post-checkout
-"${EDITOR:-vi}" .git/hooks/post-checkout < /dev/tty
-.git/hooks/.post-checkout.swp
 echo "Installed!"
+echo "Please, edit your PREFIX and USER using your favorite editor on .git/hooks/post-checkout"
