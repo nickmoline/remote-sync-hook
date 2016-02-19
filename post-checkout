@@ -2,6 +2,7 @@
 #
 # Updates remote user directory after checkout
 # 
+PATH=$PATH:/usr/local/bin:/usr/local/sbin
 
 ########################
 # Set your prefix      
