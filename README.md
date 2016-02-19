@@ -7,7 +7,9 @@ Pre-requisites
 You need to have jq installed in your system.
 
 For Mac: `$ brew install jq`
+
 For Debian/Ubuntu: `$ sudo apt-get install jq`
+
 More info: https://stedolan.github.io/jq/download/
 
 How to install
@@ -20,3 +22,7 @@ curl -L https://raw.githubusercontent.com/Yelrado/sftp-config-hook/master/instal
 Configuration
 ===
 After installing the script please set your set PREFIX and USER variables in `.git/hooks/post-checkout`.
+
+Known Issues
+===
+It doesn't work with GUI's such as __GitHub Desktop__. You need to use `git checkout` to make this hook work.
