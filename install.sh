@@ -15,7 +15,7 @@ if [ ! -d ".git" ]; then
 fi
 
 echo "Downloading script"
-curl -L https://raw.githubusercontent.com/Yelrado/sftp-config-hook/master/post-checkout > .git/hooks/post-checkout
+curl -L https://raw.githubusercontent.com/nickmoline/remote-sync-hook/master/post-checkout > .git/hooks/post-checkout
 chmod 755 .git/hooks/post-checkout
 echo "Installed!"
 echo "Please, edit your PREFIX and USER using your favorite editor on .git/hooks/post-checkout"
