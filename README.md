@@ -1,6 +1,6 @@
 Sftp-Config Git Hook
 ===
-Hook for Git that updates remote path field in `sft-config.json` file when changing branches. Useful when you're working with differents branches in the same repo and using __sftp__ plugin for __Sublime Text 2/3__.
+Hook for Git that updates remote path field in `sftp-config.json` file when changing branches. Useful when you're working with differents branches in the same repo and using __sftp__ plugin for __Sublime Text 2/3__.
 
 Pre-requisites
 ===
